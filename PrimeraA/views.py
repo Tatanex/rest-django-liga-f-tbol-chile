@@ -15,20 +15,9 @@ from PrimeraA.serializers import EquipoSerializer
 from PrimeraA.models import Equipo
 
 
-class UserViewSet(viewsets.ModelViewSet):
-    """
-    API endpoint that allows users to be viewed or edited.
-    """
-    queryset = Equipo.objects.all()
-    serializer_class = EquipoSerializer
-
-
-
-
 class JSONResponse(HttpResponse):
-    """
-    An HttpResponse that renders its content into JSON.
-    """
+
+    # convierte un contenido http a JSON.
     def __init__(self, data, **kwargs):
         content = JSONRenderer().render(data)
         kwargs['content_type'] = 'application/json'
@@ -37,14 +26,12 @@ class JSONResponse(HttpResponse):
 
 @csrf_exempt
 def equipo_list(request):
-    """
-    List all code serie, or create a new serie.
-    """
+
+    # Lista de todos los equipos
     if request.method == 'GET':
         equipos = Equipo.objects.all()
         serializer = EquipoSerializer(equipos, many=True)
         clubs =  JSONResponse(serializer.data)
-        # return render (request, 'index.html', {'clubs': clubs})
         return render (request, 'index.html', {'clubs': equipos, 'json' : JSONResponse(serializer.data)})
 
 
@@ -59,9 +46,8 @@ def equipo_list(request):
 
 @csrf_exempt
 def equipo_detail(request, pk):
-    """
-    Retrieve, update or delete a serie.
-    """
+
+     # Actualiza o elimina un equipo.
     try:
         equipo = Equipo.objects.get(pk=pk)
     except Equipo.DoesNotExist:
