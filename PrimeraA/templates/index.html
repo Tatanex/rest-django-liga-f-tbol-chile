@@ -32,47 +32,13 @@
 
 </head>
 <body class="nav-md">
-  <div class="container body">
-    <div class="main_container">
-
-      <!-- top pagina -->
-      <div class="top_nav">
-        <div class="nav_menu">
-          <nav class="" role="navigation">
-            <div class="nav toggle">
-              <a id="menu_toggle"><i class="fa fa-bars"></i></a>
-            </div>
-            <ul class="nav navbar-nav navbar-right" >
-              <li class=""  style="padding-right:3%">
-                <a><span>   <img src="{% static 'images/ubb.png' %}" alt=""> Universidad del Bío-Bío</span>
-                </a>
-              </li>
-              <li role="presentation" class="dropdown">
-              </li>
-            </ul>
-          </nav>
-        </div>
-      </div>
-
-
         <!-- CONTENIDO PAGINA-->
-      <div class="right_col" role="main">
-        <div class="content">
-          <div class="clearfix"></div>
+      <div >
           <div class="row">
             <div class="col-md-12 col-sm-12 col-xs-12">
               <div class="x_panel">
-                <div class="x_title">
-                  {% block header %}  <h2>Inicio <small>PROTOTIPO WEB</small></h2> {% endblock %}
-                  <div class="clearfix"></div>
-                </div>
                   <div>
                   {% block content %}
-
-
-
-                     
-
                     <table  class="table table-striped table-bordered">
                     <thead>
                     <tr>
@@ -89,33 +55,22 @@
                             <td> {{ equipos.dt }} </td>
                             <td> {{ equipos.estadio }} </td>
                             <td> {{ equipos.ciudad }} </td>
-
-
                         </tr>
                     {% endfor %}
                     </tbody>
                 </table>
-
-
                   {% endblock %}
+                  </div>
+                 <div>
+                    {{ json }}
                   </div>
                 </div>
             </div>
           </div>
-        </div>
-      </div>
-        <!-- footer content -->
-        <footer>
-        <div class="copyright-info">
-             <p class="pull-right">Proyecto de tesis -  Universidad del Bío-Bío
-             </p>
-        </div>
-        <div class="clearfix"></div>
-        </footer>
-        <!-- /footer content -->
-      </div>
-      <!-- /page content -->
-    </div>
+
+
+
+
   </div>
 
 

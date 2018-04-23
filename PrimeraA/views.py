@@ -45,7 +45,7 @@ def equipo_list(request):
         serializer = EquipoSerializer(equipos, many=True)
         clubs =  JSONResponse(serializer.data)
         # return render (request, 'index.html', {'clubs': clubs})
-        return render (request, 'index.html', {'clubs': equipos})
+        return render (request, 'index.html', {'clubs': equipos, 'json' : JSONResponse(serializer.data)})
 
 
     elif request.method == 'POST':
